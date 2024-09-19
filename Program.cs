@@ -23,7 +23,7 @@ namespace WebApplication1
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddRazorPages();
 
-            builder.Services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
+            //builder.Services.AddDbContext<TodoContext>(options => options.UseSqlServer(connectionString));
             builder.Services.AddScoped<ITodolistRepo, TodolistRepo>();
             //to enable route
             builder.Services.AddControllers();

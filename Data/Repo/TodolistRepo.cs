@@ -5,9 +5,9 @@ namespace WebApplication1.Data.Repo
 {
     public class TodolistRepo : ITodolistRepo
     {
-        private readonly TodoContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public TodolistRepo(TodoContext context)
+        public TodolistRepo(ApplicationDbContext context)
         {
             _context = context;
         }
