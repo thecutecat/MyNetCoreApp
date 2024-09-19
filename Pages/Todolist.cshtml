@@ -14,15 +14,17 @@
             <th>Title</th>
             <th>Description</th>
             <th>Is Complete</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.TodoItems)
+        @foreach (var item in Model.TodoItem)
         {
             <tr>
                 <td>@item.Title</td>
                 <td>@item.Description</td>
                 <td>@item.IsComplete</td>
+                <td><a href="UpdateTodo/@item.Id">Edit</a> <a href="DeleteTodo/@item.Id">Delete</a>  </td>
             </tr>
         }
     </tbody>

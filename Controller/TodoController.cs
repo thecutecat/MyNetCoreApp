@@ -13,14 +13,14 @@ public class TodoController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<TodoItem>>> GetAllTodoItems()
+    public async Task<ActionResult<IEnumerable<ItemTodo>>> GetAllTodoItems()
     {
         var items = await _repo.GetAllTodoItemAsync();
         return Ok(items);
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<TodoItem>> GetTodoItemById(int id)
+    public async Task<ActionResult<ItemTodo>> GetTodoItemById(int id)
     {
         var item = await _repo.GetTodoItemByIdAsync(id);
         if (item == null)
@@ -31,14 +31,14 @@ public class TodoController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> AddTodoItem(TodoItem todo)
+    public async Task<ActionResult> AddTodoItem(ItemTodo todo)
     {
         await _repo.AddTodoitemAsync(todo);
         return CreatedAtAction(nameof(GetTodoItemById), new { id = todo.Id }, todo);
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateTodoItem(int id, TodoItem todo)
+    public async Task<ActionResult> UpdateTodoItem(int id, ItemTodo todo)
     {
         if (id != todo.Id)
         {

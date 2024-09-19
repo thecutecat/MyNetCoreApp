@@ -12,42 +12,42 @@ namespace WebApplication1.Data.Repo
             _context = context;
         }
 
-        public async Task<IEnumerable<TodoItem>> GetAllTodoItemAsync()
+        public async Task<IEnumerable<ItemTodo>> GetAllTodoItemAsync()
         {
             try
             {
-                return await _context.TodoItems.ToListAsync();
+                return await _context.TodoItem.ToListAsync();
             }
             catch (Exception e)
             { 
                 Console.WriteLine(e.Message);
-                return Enumerable.Empty<TodoItem>();
+                return Enumerable.Empty<ItemTodo>();
             }
         }
 
-        public async Task<TodoItem> GetTodoItemByIdAsync(int id)
+        public async Task<ItemTodo> GetTodoItemByIdAsync(int id)
         {
-            return await _context.TodoItems.FindAsync(id);
+            return await _context.TodoItem.FindAsync(id);
         }
 
-        public async Task AddTodoitemAsync(TodoItem todo)
+        public async Task AddTodoitemAsync(ItemTodo todo)
         {
-            await _context.TodoItems.AddAsync(todo);
+            await _context.TodoItem.AddAsync(todo);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateTodoitemAsync(TodoItem todo)
+        public async Task UpdateTodoitemAsync(ItemTodo todo)
         {
-            _context.TodoItems.Update(todo);
+            _context.TodoItem.Update(todo);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteTodoitemAsync(int id)
         {
-            var todo = await _context.TodoItems.FindAsync(id);
+            var todo = await _context.TodoItem.FindAsync(id);
             if (todo != null)
             {
-                _context.TodoItems.Remove(todo);
+                _context.TodoItem.Remove(todo);
                 await _context.SaveChangesAsync();
             }
         }

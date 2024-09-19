@@ -10,9 +10,7 @@ namespace WebApplication1.Pages
     {
         private readonly ILogger<TodoModel> _logger;
         private readonly TodoService _todoService;
-        public IEnumerable<TodoItem> TodoItems { get; set; }
-
-        //Task<TodoItem> get = await OnGetAsync();
+        public IEnumerable<ItemTodo> TodoItem { get; set; } 
 
         public TodoModel(TodoService todoService, ILogger<TodoModel> logger)
         {
@@ -24,7 +22,7 @@ namespace WebApplication1.Pages
 
         public async Task OnGetAsync()
         {
-            TodoItems = await _todoService.GetAllTodoItemsAsync();
+            TodoItem = await _todoService.GetAllTodoItemsAsync();
         }
     }
 

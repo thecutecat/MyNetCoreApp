@@ -11,20 +11,20 @@ namespace WebApplication1.Data.Services
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<TodoItem>> GetAllTodoItemsAsync()
+        public async Task<IEnumerable<ItemTodo>> GetAllTodoItemsAsync()
         {
             var response = await _httpClient.GetAsync("api/todo");
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadFromJsonAsync<IEnumerable<TodoItem>>();
+            return await response.Content.ReadFromJsonAsync<IEnumerable<ItemTodo>>();
         }
 
-        public async Task<TodoItem> GetTodoItemByIdAsync(int id)
+        public async Task<ItemTodo> GetTodoItemByIdAsync(int id)
         {
             var response = await _httpClient.GetAsync($"api/todo/{id}");
             response.EnsureSuccessStatusCode();
 
-            return await response.Content.ReadFromJsonAsync<TodoItem>();
+            return await response.Content.ReadFromJsonAsync<ItemTodo>();
         }
     }
 

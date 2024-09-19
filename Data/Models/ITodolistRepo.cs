@@ -5,14 +5,14 @@ namespace WebApplication1.Data.Models
 {
     public interface ITodolistRepo
     {
-        Task<IEnumerable<TodoItem>> GetAllTodoItemAsync();
-        Task<TodoItem> GetTodoItemByIdAsync(int id);
-        Task AddTodoitemAsync(TodoItem todo);
-        Task UpdateTodoitemAsync(TodoItem todo);
+        Task<IEnumerable<ItemTodo>> GetAllTodoItemAsync();
+        Task<ItemTodo> GetTodoItemByIdAsync(int id);
+        Task AddTodoitemAsync(ItemTodo todo);
+        Task UpdateTodoitemAsync(ItemTodo todo);
         Task DeleteTodoitemAsync(int id);
     }
 
-    public class TodoItem
+    public class ItemTodo
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

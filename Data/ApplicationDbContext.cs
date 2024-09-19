@@ -11,15 +11,7 @@ namespace WebApplication1.Data
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<ItemTodo>? TodoItem { get; set; }
 
     }
-
-    /*
-    public class TodoContext : DbContext
-    {
-        public TodoContext(DbContextOptions<TodoContext> options) : base(options) { }
-
-        public DbSet<TodoItem> TodoItems { get; set; }
-    }*/
 }
