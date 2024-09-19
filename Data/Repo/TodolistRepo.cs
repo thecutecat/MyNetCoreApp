@@ -14,7 +14,15 @@ namespace WebApplication1.Data.Repo
 
         public async Task<IEnumerable<TodoItem>> GetAllTodoItemAsync()
         {
-            return await _context.TodoItems.ToListAsync();
+            try
+            {
+                return await _context.TodoItems.ToListAsync();
+            }
+            catch (Exception e)
+            { 
+                Console.WriteLine(e.Message);
+                return Enumerable.Empty<TodoItem>();
+            }
         }
 
         public async Task<TodoItem> GetTodoItemByIdAsync(int id)
