@@ -15,9 +15,7 @@ namespace WebApplication1.Pages
         public TodoModel(TodoService todoService, ILogger<TodoModel> logger)
         {
             _logger = logger;
-            _todoService = todoService;
-            
-            
+            _todoService = todoService; 
         }
 
         public async Task OnGetAsync()
